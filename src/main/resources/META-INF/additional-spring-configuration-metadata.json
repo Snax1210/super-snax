@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "data-username",
+      "type": "java.lang.String",
+      "description": "Description for data-username."
+    },
+    {
+      "name": "spring.datasource.initialSize",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.initialSize."
+    }
+  ] }

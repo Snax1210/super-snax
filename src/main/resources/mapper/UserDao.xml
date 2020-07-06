@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.snax.supersnax.mapper.UserDao">
+    <resultMap id="BaseResultMap" type="org.snax.supersnax.entity.User">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="userName"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="realName" jdbcType="VARCHAR" property="realName"/>
+    </resultMap>
+
+    <select id="get" resultType="org.snax.supersnax.entity.User">
+        select *
+        from "user"
+        where id = #{id}
+    </select>
+    <insert id="add" parameterType="org.snax.supersnax.entity.User">
+        insert into "user" ("id","userName", "password", "realName")
+        VALUES (#{id,jdbcType=VARCHAR},#{realName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{realName,jdbcType=VARCHAR})
+    </insert>
+
+</mapper>
