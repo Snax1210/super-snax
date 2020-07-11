@@ -6,7 +6,6 @@ import org.snax.supersnax.service.UserService;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.util.UUID;
 
 @SpringBootTest
 class SuperSnaxApplicationTests
@@ -18,7 +17,7 @@ class SuperSnaxApplicationTests
     @Test
     void contextLoads()
     {
-        User user1 =new User(UUID.randomUUID().toString(),"username","password","realname");
+        User user1 = User.builder().userName("userName").password("password").realName("realName").build();
         userService.insert(user1);
     }
 

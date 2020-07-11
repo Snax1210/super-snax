@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/user")
@@ -22,7 +21,8 @@ public class UserController
     UserService userService;
 
     @GetMapping("/get")
-    public String getUser(String id){
+    public String getUser(Integer id)
+    {
         try
         {
             User resultUser = userService.get(id);
@@ -30,7 +30,7 @@ public class UserController
         }
         catch (Exception e)
         {
-            log.error("get user error ! reason is {}",e.getMessage());
+            log.error("get user error ! reason is {}", e.getMessage());
             return DefaultUtils.ERROR;
         }
     }
@@ -41,13 +41,13 @@ public class UserController
         try
         {
             //User user = JSONObject.parseObject(paramString,User.class);
-            User user1 =new User(UUID.randomUUID().toString(),"username","password","realname");
+            User user1 = User.builder().userName("userName").password("password").realName("realName").build();
             userService.insert(user1);
             return DefaultUtils.SUCCESS;
         }
         catch (Exception e)
         {
-            log.error("insert User error reason is {}",e.getMessage());
+            log.error("insert User error reason is {}", e.getMessage());
             return DefaultUtils.ERROR;
         }
     }

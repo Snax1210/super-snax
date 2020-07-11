@@ -4,6 +4,6 @@ import org.snax.supersnax.entity.User;
 
 public interface UserService
 {
-    User get (String id);
+    User get (Integer id);
     int insert(User user);
 }

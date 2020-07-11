@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao
 {
-    User get(String id);
+    User get(Integer id);
     int add(User user);
 }

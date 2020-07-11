@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService
     @Resource
     UserDao userDao;
     @Override
-    public User get(String id)
+    public User get(Integer id)
     {
         return userDao.get(id);
     }
