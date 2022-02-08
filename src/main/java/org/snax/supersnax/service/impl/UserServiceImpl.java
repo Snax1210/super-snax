@@ -8,19 +8,17 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 
 @Service
-public class UserServiceImpl implements UserService
-{
+public class UserServiceImpl implements UserService {
     @Resource
     UserDao userDao;
+
     @Override
-    public User get(Integer id)
-    {
+    public User get(Integer id) {
         return userDao.get(id);
     }
 
     @Override
-    public int insert(User user)
-    {
+    public int insert(User user) {
         return userDao.add(user);
     }
 }

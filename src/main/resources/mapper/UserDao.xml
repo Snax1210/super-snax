@@ -10,12 +10,15 @@
 
     <select id="get" resultType="org.snax.supersnax.entity.User">
         select *
-        from user
+        from user1
         where id = #{id}
     </select>
     <insert id="add" parameterType="org.snax.supersnax.entity.User" useGeneratedKeys="true" keyColumn="id">
-        insert into user (userName, password, realName)
+        insert into user1 (userName, password, realName)
         VALUES (#{userName,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR},#{realName,jdbcType=VARCHAR})
     </insert>
 
+    <select id="getMessages" resultType="java.lang.String">
+        select * from a_1466595534055264258 limit 1000 offset #{offset};
+    </select>
 </mapper>

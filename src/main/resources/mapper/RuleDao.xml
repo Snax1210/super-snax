@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.snax.supersnax.mapper.RuleDao">
+    <resultMap id="BaseResultMap" type="org.snax.supersnax.entity.GoRule">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="pattern_id" jdbcType="INTEGER" property="patternId"/>
+        <result column="rule_id" jdbcType="INTEGER" property="ruleId"/>
+        <result column="edge_num" jdbcType="INTEGER" property="edgeNum"/>
+        <result column="attribute_num" jdbcType="INTEGER" property="attributeNum"/>
+        <result column="x_support_single" jdbcType="INTEGER" property="xSupportSingle"/>
+        <result column="y_support_single" jdbcType="INTEGER" property="ySupportSingle"/>
+        <result column="x_support_multiple" jdbcType="INTEGER" property="xSupportMultiple"/>
+        <result column="y_support_multiple" jdbcType="INTEGER" property="ySupportMultiple"/>
+        <result column="confidence" jdbcType="FLOAT" property="confidence"/>
+        <result column="lift" jdbcType="FLOAT" property="lift"/>
+        <result column="x_info" jdbcType="VARCHAR" property="xInfo"/>
+        <result column="y_info" jdbcType="VARCHAR" property="yInfo"/>
+        <result column="instance_info" jdbcType="VARCHAR" property="instanceInfo"/>
+    </resultMap>
+
+    <select id="getGoRules" resultMap="BaseResultMap">
+        select *
+        from go_rules_1637829298143638200
+    </select>
+
+    <insert id="insertJavaRules" parameterType="org.snax.supersnax.entity.JavaRule">
+        insert into m_rule_1463789837977915393
+                (rule_id, rule_name, create_time, update_time, id, edge_num, data_info, labels, pattern_id,
+                 y_support_single, attribute_num, x_support_single, confidence, lift, x_support_multiple,
+                 y_support_multiple, y_weight, one_instance, pivots_id)
+        VALUES (#{ruleId,jdbcType=BIGINT}, #{ruleName,jdbcType=VARCHAR}, null, null, #{id,jdbcType=BIGINT}, #{edgeNum},
+                #{dataInfo,typeHandler=org.snax.supersnax.handler.JsonTypeHandler}, null, #{patternId,jdbcType=BIGINT},
+                #{ySupportSingle}, #{attributeNum}, #{xSupportSingle}, #{confidence}, #{lift}, #{xSupportMultiple},
+                #{ySupportMultiple}, #{yWeight}, #{oneInstance}, #{pivotsId,jdbcType=VARCHAR})
+    </insert>
+</mapper>
